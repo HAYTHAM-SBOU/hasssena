@@ -1,277 +1,625 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Pro | PES 2026 Edition</title>
+    <title>اعتراف حب إلى حسنة ❤️</title>
     <style>
-        /* --- CSS Toolkit --- */
-        :root {
-            --bg: #060b14;
-            --card: #111827;
-            --blue-neon: #38bdf8;
-            --text: #ffffff;
-            --dim: #94a3b8;
-            --gold: #fbbf24;
-            --red: #ef4444;
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Section */
-        .admin-header {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: #000;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(145deg, #111827, #1f2937);
-            padding: 20px 30px;
-            border-radius: 15px;
-            border: 1px solid #374151;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-
-        .admin-header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px var(--blue-neon);
-        }
-
-        /* Admin Control Panel */
-        .admin-controls {
-            background: #f8fafc;
-            color: #1e293b;
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            border: 3px solid var(--blue-neon);
-            animation: slideIn 0.4s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Groups Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid #1f2937;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--blue-neon);
-        }
-
-        .card h3 {
-            color: var(--blue-neon);
-            text-align: center;
-            margin-top: 0;
-            font-size: 1.4rem;
-            border-bottom: 1px solid #374151;
-            padding-bottom: 15px;
-        }
-
-        /* Table Style */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-
-        th {
-            color: var(--dim);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            padding: 10px;
-            border-bottom: 2px solid #1f2937;
-        }
-
-        td {
-            padding: 12px 5px;
-            text-align: center;
-            border-bottom: 1px solid #1f2937;
-        }
-
-        /* Inputs */
-        .input-neon {
-            width: 45px;
-            background: var(--blue-neon);
-            border: none;
-            color: #000;
-            text-align: center;
-            border-radius: 6px;
-            padding: 6px;
-            font-weight: bold;
-            box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
-        }
-
-        /* Match Info Box */
-        .match-info-box {
-            background: rgba(56, 189, 248, 0.05);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            border: 1px dashed rgba(56, 189, 248, 0.3);
-        }
-
-        .match-info-box h4 {
-            margin: 0 0 12px 0;
-            font-size: 0.9rem;
-            color: var(--gold);
-            text-align: center;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
             align-items: center;
-        }
-
-        .info-input {
-            background: #1e293b;
-            color: white;
-            border: 1px solid #475569;
-            border-radius: 6px;
-            padding: 5px 8px;
-            width: 60%;
-        }
-
-        /* Knockout Bracket */
-        .bracket-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-        }
-
-        .bracket-col {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            min-width: 220px;
-        }
-
-        .bracket-col h4 {
-            text-align: center;
-            color: var(--dim);
-            background: #1f2937;
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .match-box {
-            background: var(--card);
-            border: 1px solid #374151;
-            border-radius: 12px;
+            padding: 20px;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .team-row {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1f2937;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .btn:active { transform: scale(0.95); }
-
-        .btn-start { background: var(--blue-neon); color: #000; width: 100%; font-size: 1rem; }
-        .btn-ko { background: var(--gold); color: #000; width: 100%; margin-top: 15px; }
-        
-        .hidden { display: none !important; }
-
-        textarea {
+        /* Animated background with hearts */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100px;
-            border-radius: 10px;
-            border: 1px solid #cbd5e1;
-            padding: 15px;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .heart-bg {
+            position: absolute;
+            font-size: 30px;
+            color: rgba(255, 77, 141, 0.3);
+            animation: floatUp 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 40px 20px 40px 20px;
+            box-shadow: 0 0 30px rgba(255, 77, 141, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+            border: 3px solid gold;
+            animation: containerGlow 3s ease infinite;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes containerGlow {
+            0% { box-shadow: 0 0 30px rgba(255, 77, 141, 0.5), 0 0 60px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(255, 77, 141, 0.8), 0 0 90px rgba(255, 215, 0, 0.6); }
+            100% { box-shadow: 0 0 30px rgba(255, 77, 141, 0.5), 0 0 60px rgba(255, 215, 0, 0.3); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .to-name {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #ff4d8d;
+            text-shadow: 3px 3px 0 gold, 5px 5px 0 rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+            animation: bounceIn 1s ease, heartbeat 2s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ff4d8d;
+            font-weight: 300;
+            border-bottom: 3px dashed gold;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Confession card */
+        .confession-card {
+            background: linear-gradient(145deg, #fff9f9, #ffe4f0);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(255, 77, 141, 0.3);
+            border: 2px solid gold;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 1s ease;
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .confession-card::before {
+            content: '❤️';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            font-size: 150px;
+            opacity: 0.1;
+            transform: rotate(20deg);
+        }
+
+        .confession-card::after {
+            content: '💝';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            font-size: 150px;
+            opacity: 0.1;
+            transform: rotate(-20deg);
+        }
+
+        .confession-text {
+            font-size: 1.8rem;
+            line-height: 3rem;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .confession-text p {
+            margin: 20px 0;
+        }
+
+        .highlight {
+            color: #ff4d8d;
+            font-weight: 700;
+            font-size: 2.2rem;
+            animation: sparkle 2s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes sparkle {
+            0% { text-shadow: 0 0 0 gold; }
+            50% { text-shadow: 0 0 20px gold, 0 0 40px #ff4d8d; }
+            100% { text-shadow: 0 0 0 gold; }
+        }
+
+        /* Reasons section */
+        .reasons-section {
+            margin: 50px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff4d8d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 gold;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(255, 77, 141, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 5px solid gold;
+            animation: fadeIn 1s ease;
+            transform-origin: center;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) rotate(2deg) scale(1.05);
+            box-shadow: 0 20px 30px rgba(255, 77, 141, 0.4);
+            background: #ff4d8d;
+            color: white;
+        }
+
+        .reason-card:hover .reason-icon,
+        .reason-card:hover .reason-text {
+            color: white;
+        }
+
+        .reason-icon {
+            font-size: 3rem;
             margin-bottom: 15px;
-            font-family: inherit;
-            box-sizing: border-box;
+            color: #ff4d8d;
+        }
+
+        .reason-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Love letter */
+        .love-letter {
+            background: #fff0f5;
+            border: 3px solid gold;
+            border-radius: 30px 10px 30px 10px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(255, 77, 141, 0.3);
+        }
+
+        .envelope-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: shake 2s ease infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .letter-line {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            margin-bottom: 20px;
+            color: #4a2c2c;
+            border-right: 5px solid #ff4d8d;
+            padding-right: 20px;
+            font-weight: 500;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .signature {
+            font-size: 2rem;
+            color: #ff4d8d;
+            text-align: left;
+            margin-top: 30px;
+            font-weight: bold;
+            border-top: 2px dashed gold;
+            padding-top: 20px;
+        }
+
+        /* Question section */
+        .question-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #ff4d8d20, #ffd70020);
+            border-radius: 30px;
+            animation: pulse 3s ease infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .question-text {
+            font-size: 2.5rem;
+            color: #ff4d8d;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .question-name {
+            font-size: 4rem;
+            color: gold;
+            text-shadow: 2px 2px 0 #ff4d8d;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .answer-btn {
+            padding: 20px 60px;
+            font-size: 2rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .answer-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .answer-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .answer-btn.yes {
+            background: linear-gradient(45deg, #ff4d8d, gold);
+            color: white;
+        }
+
+        .answer-btn.yes:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255, 77, 141, 0.6);
+        }
+
+        .answer-btn.no {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .answer-btn.no:hover {
+            transform: scale(0.95);
+        }
+
+        /* Celebration animation */
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+
+        .celebration.active {
+            display: block;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: gold;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 3.5rem;
+            }
+            .confession-text {
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+            }
+            .question-text {
+                font-size: 2rem;
+            }
+            .question-name {
+                font-size: 3rem;
+            }
+            .answer-btn {
+                padding: 15px 40px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Animated background -->
+    <div class="background" id="background"></div>
 
-<div class="container">
-    <header class="admin-header">
-        <h1>🏆 PES 2026 TOURNAMENT</h1>
-        <button class="btn" id="adminBtn" style="background: #334155; color: white;" onclick="toggleAdmin()">الإدارة 🔐</button>
-    </header>
+    <!-- Celebration overlay -->
+    <div class="celebration" id="celebration"></div>
 
-    <div id="adminPanel" class="admin-controls hidden">
-        <div id="setupView">
-            <h3>⚙️ إعداد المجموعات</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 10px;">أدخل أسماء الفرق (فريق في كل سطر):</p>
-            <textarea id="teamsInput" placeholder="مثال:&#10;ريال مدريد&#10;برشلونة&#10;بايرن ميونخ"></textarea>
-            <button class="btn btn-start" onclick="initTournament()">توليد البطولة عشوائياً 🎲</button>
+    <!-- Main container -->
+    <div class="container">
+        <div class="header">
+            <div class="to-name">إلى أغلى إنسانة في الكون</div>
+            <div class="name">حسنة ❤️</div>
+            <div class="subtitle">كلمات من القلب</div>
         </div>
-        
-        <div id="groupActions" class="hidden">
-            <button class="btn btn-ko" onclick="startKnockoutPhase()">إغلاق المجموعات وبدء الإقصائيات 🏁</button>
-            <button class="btn" style="background:var(--red); color:white; margin-top:10px; width: 100%;" onclick="resetAll()">حذف البطولة الحالية 🗑️</button>
+
+        <!-- Confession card -->
+        <div class="confession-card">
+            <div class="confession-text">
+                <p>💭 <span class="highlight">حسنة</span>... عندي شي حاب نقولك</p>
+                <p>من مدة و أنا كنت كنتمنى هاد اللحظة</p>
+                <p>اللحظة اللي نعترف ليك فيها بلي</p>
+                <p>💕 <span class="highlight">أنا كنبغيك</span> 💕</p>
+            </div>
         </div>
+
+        <!-- Reasons to love her -->
+        <div class="reasons-section">
+            <h2 class="section-title">علاش كنحبك يا حسنة؟</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">👀</div>
+                    <div class="reason-text">عيونك الجميلة</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">😊</div>
+                    <div class="reason-text">ضحكتك اللي بتخليني نعيش</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💭</div>
+                    <div class="reason-text">طيبة قلبك</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">✨</div>
+                    <div class="reason-text">حضورك الرائع</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌸</div>
+                    <div class="reason-text">رقتك وذوقك</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💫</div>
+                    <div class="reason-text">كل شي فيك</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Love letter -->
+        <div class="love-letter">
+            <div class="envelope-icon">💌</div>
+            <div class="letter-line">
+                "يا حسنة، من أول مرة شفتك فيها، حسيت بشي غريب..."
+            </div>
+            <div class="letter-line">
+                "كنت كنبغيك بلا ما ندير فيها، بلا ما نفكر، بلا ما نتردد"
+            </div>
+            <div class="letter-line">
+                "أنتِ النور في حياتي، أنتِ الأمل اللي كنعيش بيه"
+            </div>
+            <div class="letter-line">
+                "كل ما نسمع اسم <strong>حسنة</strong>، كيبقى قلبي كيدق بسرعة"
+            </div>
+            <div class="letter-line">
+                "وكل ما نشوفك، كتوقف الدنيا في عيوني"
+            </div>
+            <div class="signature">
+                من قلب كيعشقك بصدق
+            </div>
+        </div>
+
+        <!-- The big question -->
+        <div class="question-section">
+            <div class="question-text">حسنة... هل تقبلين أن تكوني</div>
+            <div class="question-name">حبيبتي؟ 💝</div>
+            
+            <div class="buttons-container">
+                <button class="answer-btn yes" onclick="sayYes()">نعم 💖</button>
+                <button class="answer-btn no" onclick="sayNo()">لا 🥀</button>
+            </div>
+        </div>
+
+        <!-- Hidden message for Yes -->
+        <div id="yesMessage" style="display: none;">
+            <div class="confession-card" style="background: linear-gradient(145deg, #ffd700, #ff4d8d); color: white; text-align: center; animation: scaleIn 1s ease;">
+                <div style="font-size: 5rem; margin-bottom: 20px;">💞</div>
+                <div style="font-size: 3rem; font-weight: bold; margin-bottom: 20px;">شكراً لك يا حسنة! 💖</div>
+                <div style="font-size: 1.8rem; line-height: 2.5rem;">
+                    وعد مني نكون دايمًا معاك<br>
+                    نحميك ونغليك ونعشقك<br>
+                    انتي ملكة قلبي للأبد<br>
+                    أحبك يا حسنة ❤️
+                </div>
+            </div>
+        </div>
+
+        <!-- Message container for dynamic content -->
+        <div id="messageContainer"></div>
     </div>
 
-    <div id="groupView" class="grid">
-        </div>
+    <script>
+        // Create floating hearts in background
+        function createBackgroundHearts() {
+            const bg = document.getElementById('background');
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-bg';
+                    heart.innerHTML = ['❤️', '💖', '💗', '💓', '💕', '💘'][Math.floor(Math.random() * 6)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.animationDelay = Math.random() * 5 + 's';
+                    bg.appendChild(heart);
+                }, i * 100);
+            }
+        }
 
-    <div id="knockoutView" class="hidden">
-        <h2 style="text-align: center; color: var(--gold); font-size: 2rem; margin-bottom: 30px;">🏁 شجرة الأدوار الإقصائية</h2>
-        <div class="bracket-container">
-            <div class="bracket-col" id="qf-col"></div>
-            <div class="bracket-col" id="sf-col"></div>
-            <div class="bracket-col" id="f-col"></div>
-        </div>
-    </div>
-</div>
+        // Say Yes function
+        function sayYes() {
+            // Create celebration effect
+            const celebration = document.getElementById('celebration');
+            celebration.classList.add('active');
+            
+            // Create confetti
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = ['#ff4d8d', 'gold', '#ffd700', '#ff69b4'][Math.floor(Math.random() * 4)];
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 20 + 10) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    celebration.appendChild(confetti);
+                    
+                    // Remove confetti after animation
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+            
+            // Show yes message
+            const container = document.getElementById('messageContainer');
+            const yesMsg = document.getElementById('yesMessage').cloneNode(true);
+            yesMsg.style.display = 'block';
+            yesMsg.id = '';
+            container.innerHTML = '';
+            container.appendChild(yesMsg);
+            
+            // Hide question section
+            document.querySelector('.question-section').style.display = 'none';
+            
+            // Play romantic alert
+            alert('💖 مبروك! حسنة قبلت الحب 💖');
+        }
 
-<script src="script.js"></script>
+        // Say No function (with funny messages)
+        function sayNo() {
+            const messages = [
+                '🥺 لا تقولي لا...',
+                '💔 قلبي كيوجعني...',
+                '😭 جربي نعم مرة وحدة',
+                '🤔 فكري مليح قبل لا',
+                '✨ يمكن نعم هي الجواب الصح',
+                '💝 أنا متأكد بلي كتحبيني'
+            ];
+            
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMsg);
+            
+            // Make Yes button bigger
+            const yesBtn = document.querySelector('.answer-btn.yes');
+            yesBtn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                yesBtn.style.transform = 'scale(1)';
+            }, 300);
+        }
 
+        // Initialize on load
+        window.onload = function() {
+            createBackgroundHearts();
+            
+            // Show intro alert
+            setTimeout(() => {
+                alert('💌 رسالة خاصة إلى حسنة...');
+            }, 500);
+        };
+    </script>
 </body>
 </html>
